@@ -101,14 +101,7 @@
 
 
 
-function isNumberInRange(start, end, number) {
 
-  
-  
-    return start <= number && end >= number;
- 
-}
-consol.log(isNumberInRange(10, 30, 17));
 
 
 
