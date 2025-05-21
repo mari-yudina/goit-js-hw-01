@@ -265,14 +265,16 @@
 // console.log(sum); // 9
 
 
-const min = 0;
-const max = 5;
-let sum = 0;
-for(let i = min; i <= max; i++){
-    if(i % 2 !== 0) {
-        continue;
-    } 
-    console.log("la", i); // "la 0" "la 2" "la 4" 
+// const min = 0;
+// const max = 5;
+// let sum = 0;
+// for(let i = min; i <= max; i++){
+//     if(i % 2 !== 0) {
+//         continue;
+//     } 
+//     console.log("la", i); // "la 0" "la 2" "la 4" 
     
-    }
+//     }
+
+; 
 
