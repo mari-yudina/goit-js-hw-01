@@ -65,12 +65,14 @@
 
 // Методи масиву
 
-// - join
-// - split
-// - slice
-// - concat
-// - indexOf
-// - push/pop
+// - join() - перетворює на рдочок в дужках символ який розділяє ел-ти масиву
+// - split() - перетворити рядок на масив, розбивши його за вказаним роздільником
+// - slice -повертає новий масив, що містить копію частини вихідного масиву, не змінюючи його
+// - concat() - (arr1, arr2, ..., arrN) використовується для об'єднання двох або більше масивів.
+// - indexOf() - повертає індекс елемента, якщо він знайдений, або -1, якщо елемент не знайдений
+// - push() - для додавання одного або більше елементів у кінець масиву
+// - pop()
+// - includes() - повертає логічне значення true, якщо елемент знайдено в масиві, і false, якщо елемент відсутній.
 
 // const courses = ["HTML", "CSS", "JS", "React", "PostgreSQL"];
 // const str = courses.join("-");
@@ -321,10 +323,345 @@
 // console.log(getOrderQuantity(["apple", "peach", "pear", "banana"])); //4
 
 
-function getLastElementMeta(array) {
-   
-const index = array.length - 1;
- fruits = array.pop();
- return `${index}, ${fruits}`
-}
-console.log(getLastElementMeta(["apple", "peach", "pear", "banana"])); //[3, "banana"]
+// function getLastElementMeta(array) {
+//     const index = array.length - 1; 
+//     const lastElement = array[index]; 
+    
+//     return [index, lastElement]; 
+// }
+// console.log(getLastElementMeta(["apple", "peach", "pear", "banana"])); //(2) [3, 'banana']
+
+
+// function getExtremeElements(array) {
+//     const firstElement = array[0];
+//     const lastElement = array[array.length - 1];
+//   return [firstElement, lastElement];  
+// }
+// console.log(getExtremeElements(["Earth", "Mars", "Venus"])); //(2) ["Earth", "Venus"]
+
+// const emptyArray = [];
+// const nonEmptyArray = [1, 2, 3];
+
+// console.log(Boolean(emptyArray)); // true
+// console.log(Boolean(nonEmptyArray)); // true
+
+// if(emptyArray) {
+// 	console.log("1", "if is in progress") // "1", "if is in progress"
+// } else {
+// 	console.log("2","else is not performed")
+// }
+
+// if(nonEmptyArray) {
+// 	console.log("3","if is in progress")  //"3","if is in progress"
+// } else {
+// 	console.log("4","else is not performed")
+// }
+
+// const array= [false];
+// const result = array ? "A" : "B";
+// console.log(result); //A - масив навіть[] = true
+
+
+
+
+// - join() - перетворює на рдочок в дужках символ який розділяє ел-ти масиву
+
+// function transformString(string) {
+// 	const words = string.split("_");
+// 	return words.join("-");
+// }
+// console.log(transformString("user_age")); // "user-age"
+// console.log(transformString("price_per_droid")); // "price-per-droid"
+
+
+// function getLength(array) {
+//     const arr = array.join("");
+//      console.log(array); //(5) ['Mango', 'hurries', 'to', 'the', 'train']
+//      return  arr.length;
+//    }
+// console.log(getLength(["Mango", "hurries", "to", "the", "train"])); //22
+
+
+
+// - split() - перетворити рядок на масив, розбивши його за вказаним роздільником
+
+// const name = "Mango";
+// const letters = name.split("");
+// console.log(letters); // ["M", "a", "n", "g", "o"]
+
+// const message = "JavaScript essentials";
+// const words = message.split(" ");
+// console.log(words); // ["JavaScript", "essentials"]
+
+// const slug = "amazing-french-recipes";
+// const slugParts = slug.split("-");
+// console.log(slugParts); // ["amazing", "french", "recipes"]
+
+// function calculateEngravingPrice(message, pricePerWord) {
+//   const mes =  message.split(" ").length;
+//   const totalPrise = mes * pricePerWord;
+// return totalPrise;
+// }
+// console.log(calculateEngravingPrice("JavaScript is in my blood", 20)); //100
+
+
+
+
+// slice() -повертає новий масив, що містить копію частини вихідного масиву, не змінюючи його
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter", "Saturn"];
+// console.log(planets.slice(0, 2)); //(2) ['Earth', 'Mars']
+// console.log(planets.slice(0, 4)); //(4) ['Earth', 'Mars', 'Venus', 'Jupiter']
+// console.log(planets.slice(1, 3)); //(2) ['Mars', 'Venus']
+//console.log(planets.slice(-2)); // ["Jupiter", "Saturn"]
+
+
+// const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+// const firstTwoEls = fruits.slice(0, 2);
+// const nonExtremeEls = fruits.slice(1, (fruits.length - 1));
+// const lastThreeEls = fruits.slice(-3);
+// console.log(firstTwoEls); //["apple", "plum"]
+// console.log(nonExtremeEls); //["plum", "pear", "orange"]
+// console.log(lastThreeEls); //["pear", "orange", "banana"]
+
+
+
+
+
+// concat() - (arr1, arr2, ..., arrN) використовується для об'єднання двох або більше масивів.
+
+
+// const firstArray = ["Mercury", "Venus"];
+// const secondArray = ["Mars", "Jupiter"];
+// const result = firstArray.concat(secondArray);
+
+// console.log(firstArray); // ["Mercury", "Venus"];
+// console.log(secondArray); // ["Mars", "Jupiter"];
+// console.log(result); // ["Mercury", "Venus", "Mars", "Jupiter"];
+
+// const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];
+// const newClients = ["Peach", "Houston"];
+// const allClients = oldClients.concat(newClients);
+// console.log(allClients); //(6) ['Mango', 'Ajax', 'Poly', 'Kiwi', 'Peach', 'Houston']
+
+
+
+
+// indexOf() - повертає індекс елемента, якщо він знайдений, або -1, якщо елемент не знайдений
+
+// const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Poly"];
+// console.log(clients.indexOf("Poly")); // 2
+// console.log(clients.indexOf("Monkong")); // -1
+
+// function getSlice(array, value) {
+//     for(let i = 0; i < array.length; i++){
+//   if(array.indexOf(value) === -1){
+// return array.slice(array.length);
+//     } 
+//       return array.slice(0, (array.indexOf(value) + 1));  
+// }
+// }
+// console.log(getSlice(["Mango", "Poly", "Ajax"], "Poly")); //(2) ["Mango", "Poly"]
+
+
+
+
+// - push() - для додавання одного або більше елементів у кінець масиву
+
+// const planets = ["Earth", "Mars", "Venus"];
+// planets.push("Jupiter");
+// console.log(planets); // ['Earth', 'Mars', 'Venus', 'Jupiter']
+// planets.push("Saturn", "Neptune");
+// console.log(planets); // ['Earth', 'Mars', 'Venus', 'Jupiter', "Saturn", "Neptune"]
+
+// const tags = [];
+// for(let i = 0; i < 3; i += 1) {
+// 	tags.push(`tag-${i}`);
+// }
+// console.log(tags); // ["tag-0", "tag-1", "tag-2"]
+
+// function createArrayOfNumbers(min, max) {
+//     let minMax = [];
+//     for(let i = min; i <= max; i++){
+//      minMax.push(i);
+//     }
+//     return minMax;
+// }
+// console.log(createArrayOfNumbers(14, 17)); //(4) [14, 15, 16, 17]
+
+
+
+
+//-----  Ітерація по масиву -----
+
+// const planets = ["Earth", "Mars", "Venus"];
+// for (let i = 0; i < planets.length; i += 1) {
+//   console.log(planets[i]);//Earth
+//                           //Mars
+//                           //Venus
+// }
+
+
+// function calculateTotalPrice(order) {
+//     let sum = 0;
+// for(let i = 0; i < order.length; i++){
+// sum += Number(order[i]);
+// }
+// return sum;
+// }
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176])); // 1116
+
+
+// function getEvenNumbers(start, end) {
+//     let startEnd = [];
+//     for(let i = start; i <= end; i++){
+//         if(i % 2 === 0){
+//             startEnd.push(i);
+//     }
+//        }
+// return startEnd;
+// }
+// console.log(getEvenNumbers(3, 11)); //(4) [4, 6, 8, 10]
+
+
+
+
+// - includes() - повертає логічне значення true, якщо елемент знайдено в масиві, і false, якщо елемент відсутній.
+
+// const planets = ["Earth", "Mars", "Venus"];
+// console.log(planets.includes("Earth")); // true
+// console.log(planets.includes("Mars")); // true
+// console.log(planets.includes("Venus")); // true
+// console.log(planets.includes("Jupiter")); // false
+
+
+// const fruits = ["apple", "banana", "orange"];
+// if (fruits.includes("banana")) {
+//   console.log("The array has an element banana"); //The array has an element banana
+// } else {
+//   console.log("Array does not contain banana element");
+// }
+
+// function checkStorage(storage, item) {
+//     const newItem = item.toLowerCase();
+//     for(let i = 0; i < storage.length; i++){
+// if(storage.includes(newItem) === true){
+//     return `${newItem} is available to order!`;
+// }
+//     }
+// return 'Sorry! We are out of stock!';
+// }
+// console.log(checkStorage(["apple", "plum", "pear"], "PluM")); // "plum is available to order!"
+
+
+// function getCommonElements(array1, array2) {
+//     let commonElements = []; // Створюємо порожній масив для спільних елементів
+
+//     for (let i = 0; i < array1.length; i++) { // Перебираємо елементи першого масиву
+//         if (array2.includes(array1[i])) { // Перевіряємо, чи елемент є в другому масиві
+//             commonElements.push(array1[i]); // Додаємо його до масиву
+//         }
+//     }
+
+//     return commonElements; // Повертаємо масив зі спільними елементами
+// }
+
+// console.log(getCommonElements([1, 3, 5], [0, 8, 5, 3])); // Виведе: [3, 5]
+// console.log(getCommonElements([10, 20, 30], [20, 40, 50])); // Виведе: [20]
+// console.log(getCommonElements([7, 8, 9], [1, 2, 3])); // Виведе: [] (немає спільних елементів)
+
+
+
+
+//-------  Цикл for...of   ---------
+
+// const planets = ["Earth", "Mars", "Venus"];
+// for (const planet of planets) {
+//   console.log(planet);//Earth
+//                       //Mars
+//                       //Venus
+// }
+
+
+// function calculateTotalPrice(order) {
+//     let sum = 0;
+
+//     for (const item of order) { // Проходимо кожен елемент у масиві
+//         sum += item; // Додаємо значення до загальної суми
+//     }
+
+//     return sum; // Повертаємо загальну суму
+// }
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176])); // Виведе: 1116
+// console.log(calculateTotalPrice([100, 200, 300])); // Виведе: 600
+// console.log(calculateTotalPrice([])); // Виведе: 0 (якщо масив порожній)}
+
+
+
+
+//---------   Функції (частина 2)   ----------
+// - Псевдомасив arguments
+
+// function sum(a, b) {
+//   console.log(arguments);
+//   return a + b;
+// }
+// sum(2, 5); //Arguments(2) [2, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+// у неї є деякі властивості масивів, наприклад length;
+// у неї є можливість звернутися до елемента за індексом;
+// у неї немає методів для роботи з масивом;
+// її можна перебирати за допомогою циклів.
+
+// function multiply() { //повертає результат множення будь-якої кількості аргументів
+//   let total = 1;
+
+//   for (const arg of arguments) {
+//     total *= arg;
+//   }
+
+//   return total;
+// }
+// console.log(multiply(1, 2, 3)); //  6
+// console.log(multiply(1, 2, 3, 4)); //  24
+// console.log(multiply(1, 2, 3, 4, 5)); //  120
+
+//---------   Array.from() - створить масив із псевдомасиву
+
+// function foo() {
+//   // У змінній args буде повноцінний масив з усіх аргументів
+//   const args = Array.from(arguments);
+// 	return args.join("-");
+// }
+// console.log(foo(1, 2, 3)); // Поверне "1-2-3"
+
+// -----   toReversed(); // Перевертаємо масив і повертаємо його
+
+// function createReversedArray() {
+//     const args = Array.from(arguments); // Перетворюємо `arguments` у масив
+//     return args.toReversed(); // Перевертаємо масив і повертаємо його
+// }
+// console.log(createReversedArray(12, 85, 37, 4)); // Виведе: [4, 37, 85, 12]
+// console.log(createReversedArray("a", "b", "c")); // Виведе: ["c", "b", "a"]
+
+
+
+// function createReversedArray() {
+//     const args = Array.from(arguments); // Перетворюємо `arguments` у масив
+//     let reversedArray = []; // Створюємо порожній масив для перевернутих значень
+
+//     for (let i = args.length - 1; i >= 0; i--) { // Починаємо з останнього елемента
+//         reversedArray.push(args[i]); // Додаємо елементи у зворотному порядку
+//     }
+
+//     return reversedArray; // Повертаємо перевернутий масив
+// }
+// console.log(createReversedArray(12, 85, 37, 4)); // Виведе: [4, 37, 85, 12]
+// console.log(createReversedArray("apple", "banana", "cherry")); // Виведе: ["cherry", "banana", "apple"]
+// console.log(createReversedArray(100, 200, 300)); // Виведе: [300, 200, 100]
+
+
+//    function calculateTax(amount, taxRate = 0.2) {
+//     return amount * taxRate;
+//    }
+//    console.log(calculateTax(200, 0.3)); //60
