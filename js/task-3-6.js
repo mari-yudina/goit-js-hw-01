@@ -665,3 +665,154 @@
 //     return amount * taxRate;
 //    }
 //    console.log(calculateTax(200, 0.3)); //60
+
+//  function foo(a, b, c) {
+//  console.log(arguments);
+//  }
+// foo(1, 2, 3); //Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+// foo(10, 11, 12, 13, 14); //Arguments(5) [10, 11, 12, 13, 14, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+
+// псевдомасив arguments та Array.from(лала) - перевіряє чи лала масив чи ні
+
+//   function foo(a, b, c) {
+//   const arr = Array.from(arguments);
+//   console.log(arguments); //Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+//   console.log(arr); //(3) [1, 2, 3]
+//   console.log("arguments", Array.isArray(arguments)); //arguments false (немасив)
+// console.log("arr", Array.isArray(arr));  //arr true (масив)
+// }
+//  foo(1, 2, 3); 
+
+
+// const add = function(){
+//     console.log("add"); //add
+// }
+// add() //--- not  !!!
+
+
+// function add(){
+//     const arr = Array.from(arguments);
+//     let total = 0;
+//    for(const item of arr){
+//     total +=item;
+//   }
+//   return total;
+// }
+// console.log(add(1, 2, 3)); //6
+// console.log(add(10, 20, 30, 4, 5)); //69
+
+
+// function calAverage(){
+//     let total = 0;
+//     for(let i = 0; i < arguments.length; i++){
+//     total += arguments[i];
+//     }
+//     return total / arguments.length;
+// }
+// console.log(calAverage(1, 2, 3)); //2
+// console.log(calAverage(10, 12, 31, 5)); //14.5
+// console.log(calAverage(1, 22, 4, 7, 9, 8)); //8.5
+
+
+// function fnA(){
+//    console.log("fnA"); 
+// }
+// function fnB(){
+//    console.log("fnB"); 
+// }
+// function fnC(){
+//    console.log("fnC"); 
+// }
+//  console.log("befor fnA"); 
+//  fnA();
+//   console.log("after fnA"); 
+//   console.log("befor fnB"); 
+//  fnB();
+//   console.log("after fnB"); 
+//   console.log("befor fnC"); 
+//  fnC();
+//   console.log("after fnC"); 
+//     befor fnA
+//     fnA
+//     after fnA
+//     befor fnB
+//     fnB
+//     after fnB
+//     befor fnC
+//     fnC
+//     after fnC
+
+
+// function logItems(items){
+// for(let i = 0; i < items.length; i++){
+// console.log(`${i + 1} - ${items[i]}`); 
+// }
+// }  
+// logItems(["Mango", "Poly", "Ajax"]);// 1 - Mango
+//                                     // 2 - Poly
+//                                     // 3 - Ajax
+ 
+
+
+// function printInfo(names, phones){
+// const nameArr = names.split(",");
+// const phoneArr = phones.split(",");
+// for(let i = 0; i < nameArr.length; i++){
+// console.log(nameArr[i], phoneArr[i]); //Jacob 89004683649
+//                                       //William 89006985335
+//                                       //Solomon 89002344332
+//                                       //Artemis 89007689854
+// }
+
+// }
+// printInfo("Jacob,William,Solomon,Artemis",
+//     "89004683649,89006985335,89002344332,89007689854");
+
+
+
+// -----    padEnd/padStart(a, "b") - (а) - перевіряє довжину рядка ,якщо менше додає (b)
+
+
+// function formatTime(totalMinutes){
+//     const hours = Math.floor(totalMinutes / 60);
+//    const minutes = totalMinutes % 60;
+//    const doubleHours = String(hours).padStart(2, 0);
+//    const doubleMinutes = String(minutes).padStart(2, 0);
+// return `${doubleHours}:${doubleMinutes}`
+// }
+// console.log(formatTime(70)); //01:10
+// console.log(formatTime(460)); //07:40
+// console.log(formatTime(1441)); //24:01
+
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// function foo(array, count){
+//     const res = [];
+//     for(let i = 0; i < array.length; i += count){
+// const a = array.slice(i, i + count);
+// res.push(a);
+//     }
+//     return res;
+// }
+// console.log(foo(numbers, 3));
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function foo(array, count) {
+    const res = [];
+    
+    for (let i = 0; i < array.length; i += count) {
+        const a = array.slice(i, i + count);
+        res.push(a);
+    }
+    
+    return res;
+}
+
+console.log(foo(numbers, 4)); //(3) [Array(4), Array(4), Array(1)]
+                              // 0: (4) [1, 2, 3, 4]
+                              // 1: (4) [5, 6, 7, 8]
+                              // 2: [9]
+                              // length: 3
+                              // [[Prototype]]: Array(0)
