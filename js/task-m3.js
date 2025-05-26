@@ -797,22 +797,22 @@
 // }
 // console.log(foo(numbers, 3));
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function foo(array, count) {
-    const res = [];
+// function foo(array, count) {
+//     const res = [];
     
-    for (let i = 0; i < array.length; i += count) {
-        const a = array.slice(i, i + count);
-        res.push(a);
-    }
+//     for (let i = 0; i < array.length; i += count) {
+//         const a = array.slice(i, i + count);
+//         res.push(a);
+//     }
     
-    return res;
-}
+//     return res;
+// }
 
-console.log(foo(numbers, 4)); //(3) [Array(4), Array(4), Array(1)]
-                              // 0: (4) [1, 2, 3, 4]
-                              // 1: (4) [5, 6, 7, 8]
-                              // 2: [9]
-                              // length: 3
-                              // [[Prototype]]: Array(0)
+// console.log(foo(numbers, 4)); //(3) [Array(4), Array(4), Array(1)]
+//                               // 0: (4) [1, 2, 3, 4]
+//                               // 1: (4) [5, 6, 7, 8]
+//                               // 2: [9]
+//                               // length: 3
+//                               // [[Prototype]]: Array(0)
