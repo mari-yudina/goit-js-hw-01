@@ -185,3 +185,247 @@ function countTotalSalary(salaries) {
 }
 console.log(countTotalSalary(apartment)); //9
 */
+
+
+//------    Масив об’єктів - використовується Для опису групи сутностей 
+
+
+
+
+
+// for...of проходить через кожен об'єкт у масиві colors.
+// color.hex додається в hexColors.
+// color.rgb додається в rgbColors.
+/*const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+for (const color of colors) {
+  hexColors.push(color.hex);
+  rgbColors.push(color.rgb);
+}
+
+console.log(hexColors); // ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+console.log(rgbColors); // ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+*/
+
+
+// for...of проходить через кожен об'єкт у масиві colors.
+// color.hex додається в hexColors.
+// color.rgb додається в rgbColors.
+// Після завершення циклу hexColors та rgbColors містять усі відповідні значення
+/*const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+
+for (const color of colors) {
+  hexColors.push(color.hex);
+  rgbColors.push(color.rgb);
+}
+
+console.log(hexColors); // ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+console.log(rgbColors); // ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+*/
+
+
+// Використовуємо for...of, щоб пройти по кожному об'єкту у products.
+// Перевіряємо, чи product.name збігається з productName.
+// Якщо так, повертаємо product.price.
+// Якщо після завершення циклу продукт не знайдено, повертаємо null.
+/*function getProductPrice(productName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+
+  for (const product of products) {
+ 	if(product.name === productName) {
+	return product.price;
+	}
+}
+return null;
+}
+console.log(getProductPrice("Radar"));   // 1300
+console.log(getProductPrice("Scanner")); // 2700
+console.log(getProductPrice("Tablet"));  // null
+*/
+
+
+// Правильна перевірка hasOwnProperty(propName) – функція перевіряє, чи кожен об'єкт містить властивість propName.
+// Збереження значення product[propName] у allValues – додаємо значення потрібної властивості у масив.
+// Завершення циклу перед поверненням результату – функція проходить усі об'єкти, а не завершується після першого збігу.
+/*function getAllPropValues(propName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+
+  const allValues = [];
+
+  for (const product of products) {
+    if (product.hasOwnProperty(propName)) {
+      allValues.push(product[propName]);
+    }
+  }
+
+  return allValues;
+}
+
+console.log(getAllPropValues("name"));     // ["Radar", "Scanner", "Droid", "Grip"]
+console.log(getAllPropValues("price"));    // [1300, 2700, 400, 1200]
+console.log(getAllPropValues("quantity")); // [4, 3, 7, 9]
+console.log(getAllPropValues("category")); // [] (оскільки такого ключа немає)
+*/
+
+// Проходження по масиву products – for...of перевіряє кожен товар у масиві.
+// Перевірка назви – якщо product.name === productName, обчислюється загальна вартість.
+// Повернення результату – якщо товар знайдено, повертається price * quantity; якщо ні – рядок "Товар не знайдено!".
+/*function calculateTotalPrice(productName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+ 
+    for (const product of products) {
+    if (product.name === productName) {
+     return product.name + "-" + (product.price * product.quantity);
+
+    }
+    }
+return `Товар ${productName} не знайдено!`;
+}
+console.log(calculateTotalPrice("Radar"));     // ["Radar", "Scanner", "Droid", "Grip"]
+console.log(calculateTotalPrice("Droid"));    // [1300, 2700, 400, 1200]
+console.log(calculateTotalPrice("Blaster"));
+*/
+
+
+//-----------   Методи об'єкта - значення властивості — це функція
+
+
+
+// Свойство potions — пустой массив, куда будут добавляться зелья.
+// Метод getPotions() — возвращает строку "List of all available potions".
+// Метод addPotion(potionName) — возвращает строку "Adding <potionName>", где <potionName> — переданное название зелья.
+/*const atTheOldToad = {
+  potions: [],
+
+  getPotions() {
+    return "List of all available potions";
+  },
+
+  addPotion(potionName) {
+    return `Adding ${potionName}`;
+  },
+};
+
+console.log(atTheOldToad.getPotions()); // "List of all available potions"
+console.log(atTheOldToad.addPotion("Healing Potion")); // "Adding Healing Potion"
+*/
+
+
+// Метод getPotions() теперь возвращает this.potions вместо фиксированной строки.
+// this.potions указывает на свойство potions объекта atTheOldToad, позволяя динамически получать список зелий.
+// Теперь при вызове atTheOldToad.getPotions() возвращается актуальный список зелий.
+/*const atTheOldToad = {
+  potions: ["Healing Potion", "Invisibility Potion", "Mana Potion"],
+
+  getPotions() {
+    return this.potions; // Теперь метод возвращает массив зелий
+  }
+};
+
+console.log(atTheOldToad.getPotions()); 
+// ["Healing Potion", "Invisibility Potion", "Mana Potion"]
+*/
+
+
+// Метод getPotions() теперь возвращает this.potions вместо фиксированной строки.
+// this.potions указывает на свойство potions объекта atTheOldToad, позволяя динамически получать список зелий.
+// Теперь при вызове atTheOldToad.getPotions() возвращается актуальный список зелий.
+/*const atTheOldToad = {
+  potions: ["Healing Potion", "Invisibility Potion", "Mana Potion"],
+
+  getPotions() {
+    return this.potions; // Теперь метод возвращает массив зелий
+  }
+};
+
+console.log(atTheOldToad.getPotions()); 
+// ["Healing Potion", "Invisibility Potion", "Mana Potion"]
+*/
+
+
+// Замінено potions на this.potions, щоб отримувати дані з поточного об'єкта.
+// Виправлено prise на price, щоб правильно звертатися до властивості ціни.
+// Оптимізовано відступи та форматування для кращої читабельності.
+/*const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Stone skin", price: 520 },
+  ],
+
+  getPotions() {
+    return this.potions;
+  },
+
+  addPotion(newPotion) {
+    this.potions.push(newPotion);
+  },
+
+  getTotalPrice() {
+    let total = 0;
+    for (const potion of this.potions) { // Використання this.potions
+      total += potion.price; // Виправлення ключа price
+    }
+    return total;
+  },
+};
+
+console.log(atTheOldToad.getTotalPrice()); // 980
+*/
+
+
+// Порівняння potion.name === oldName – тепер перевіряється саме назва зілля.
+// Оновлення potion.name = newName – тепер змінюється назва в конкретному об'єкті.
+// Тестовий виклик updatePotionName() – показує, що назва успішно змінюється.
+/*const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Stone skin", price: 520 },
+  ],
+
+  getPotions() {
+    return this.potions;
+  },
+
+  updatePotionName(oldName, newName) {
+    for (const potion of this.potions) {
+      if (potion.name === oldName) {
+        potion.name = newName; // Оновлення назви зілля
+      }
+    }
+  },
+};
+
+atTheOldToad.updatePotionName("Speed potion", "Swift potion");
+console.log(atTheOldToad.getPotions());
+// [{ name: "Swift potion", price: 460 }, { name: "Stone skin", price: 520 }]
+*/
