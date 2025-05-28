@@ -1,8 +1,252 @@
+
+/*Обьєкти
+
+Створення обьєкта 
+Вкладені властивості 
+Доступ до властивостей через крапку 
+Доступ до вкладених властивостей 
+Доступ до властивостей через квадратні дужки 
+Зміна значення властивостей 
+Додавання властивостей
+*/
+
+
+
+//---------   Доступ до вкладених властивостей
+/*const playlist = {
+  name: "My playlist",
+  rating: 5,
+  tracks: ["track-1", "track-2", "track-3"],
+  isFavorite: true,
+  userName: "Alice",
+    skills: {
+      html: true,
+      css: true,
+      js: false
+    },
+    numbers: [4, 65, 32]
+  };
+console.log(playlist["rating"]); // 5 -покаже значення ключа
+//-------    Доступ до властивостей через крапку
+playlist.name = "New playlist";
+console.log(playlist.name); //New playlist
+playlist.lalala = "Super puper"
+console.log(playlist.lalala); //Super puper
+//--------    Доступ до властивостей через квадратні дужки
+console.log(playlist.skills.css);//true
+playlist.skills.css = false; 
+console.log(playlist.skills.css);//false
+console.log(playlist.numbers[1]); //65
+*/
+
+/*const arr = [1, 2, 3];
+arr.lalala = "tototo";
+console.log(arr);//(3) [1, 2, 3, lalala: 'tototo']
+*/
+
+
+/*function foo(){
+console.log("lalala");
+}
+foo.lalala = "tototo"
+console.dir(foo);//lalala: "tototo"
+                 //arguments: null
+                 //caller: null
+                 //length: 0
+                 //name: "foo"
+                 //prototype: {}
+                 //[[FunctionLocation]]: task-m4.js:48
+                 //[[Prototype]]: ƒ ()
+                 //[[Scopes]]: Scopes[1]
+*/
+
+
+
+/*const a = {x: 1, y: 2} ;               
+const b = a;
+a.x = 100;
+console.log("a", a); //a {x: 100, y: 2}
+console.log("b", b); //b {x: 100, y: 2}
+console.log(a === b); //true
+const c = {x: 1, y: 2} ;
+console.log(a === c); //false - обьєкти як і масиви порівнюються за посиланням
+*/
+
+/*const userName = "Alice";
+const aje = 25
+const obj = {
+  userName: userName,//=== userName
+  aje: aje//=== age
+}
+console.log(obj); //{userName: 'Alice', aje: 25}
+*/
+
+/*function foo(name, age){
+  return {
+    name,
+    age
+  }
+}
+console.log("Petya", 35);//Petya 35
+*/
+
+/*const inputName = "color";
+const inputNameTwo = "color";
+const obj = {
+  inputName: "red",
+  [inputNameTwo]: "red"
+}
+console.log(obj); //{inputName: 'red', color: 'red'} - inputName != "color",[inputNameTwo] = "color"
+*/
+
+
+// 2 - Цикл for...in
+// // 3 - Метод Object.keys()
+// // 4 - Метод Object.values()
+
+/*const feedbacl = {
+  good: 3,
+  neutral: 5,
+  bad: 10
+}
+let total = 0;
+for(const key in feedbacl){
+total += feedbacl[key];
+console.log(feedbacl[key]);//3 
+                           // 5 
+                           // 10
+}
+console.log(total); //18
+*/
+
+
+/*const feedbacl = {
+  good: 3,
+  neutral: 5,
+  bad: 10
+}
+const keys = Object.keys(feedbacl);
+console.log(keys);//(3) ['good', 'neutral', 'bad']
+const values = Object.values(feedbacl);
+console.log(values); //(3) [3, 5, 10];
+*/
+
+
+/*const animal = {
+  legd: 4
+}
+const dog = Object.create(animal);
+dog.name = "Patron";
+for(const key in dog){
+  if(dog.hasOwnProperty(key)){
+  console.log(key, dog[key]); //name Patron
+}
+}
+*/
+
+/*const animal = {
+  legd: 4
+}
+const dog = Object.create(animal);
+dog.name = "Patron";
+for(const key in dog){
+  console.log(key); // name //не треба так робити
+                    //legd
+ }
+*/
+
+
+/*const animal = {
+  legd: 4
+}
+const dog = Object.create(animal);
+dog.name = "Patron";
+const keys = Object.keys(dog);
+console.log(keys); //['name']
+for(const key of keys){
+  console.log(dog[key]); //Patron
+}
+*/
+
+
+/*const user = {
+  name: "Alice",
+  age: 20,
+  hobby: "html",
+  premium: true
+};
+user.mood = "happy";
+user.hobby = "skidiving";
+user.premium = false;
+const keys = Object.keys(user);
+for(const key of keys){
+console.log(`${key}: ${user[key]}`);// name: Alice
+                                    // age: 20
+                                    // hobby: skidiving
+                                    // premium: false
+                                    // mood: happy
+}
+*/
+
+/*const user = {
+  name: "Alice",
+  age: 20,
+  hobby: "html",
+  premium: true
+};
+const userone = {
+  name: "Petya",
+  age: 25,
+  hobby: "css",
+  premium: true
+};
+function foo(obj){
+obj.mood = "happy";
+obj.hobby = "skydiving";
+obj.premium = false;
+const keys = Object.keys(obj);
+for(const key of keys){
+console.log(`${key}: ${obj[key]}`);//name: Alice
+                                   //age: 20
+                                   //hobby: skydiving
+                                   //premium: false
+                                   //mood: happy
+                                   //name: Petya
+                                   //age: 25
+                                   //hobby: skydiving
+                                   //premium: false
+                                   //mood: happy
+}
+}
+foo(user);
+foo(userone);
+*/
+
+
+/*const salaries = {
+  Alise: 160,
+  Yura: 130,
+  Petya: 100
+}
+function summa (obj){
+let sum = 0;
+const values = Object.values(obj);
+for(const value of values){
+sum += value;
+}
+return sum;
+}
+console.log(summa (salaries));//390
+*/
+
+
 //------  літерал об'єкта.
 // 1 - Вкладені властивості + методи масиву
 // 2 - Цикл for...in - об'єкт — це не ітерабельна сутність,його не можна перебрати циклами for або for...of
 // 3 - Метод Object.keys() - приймає об'єкт і повертає масив ключів його властивостей
 // 4 - Метод Object.values() - повертає масив значень його властивостей.
+
+
 
 
 
